@@ -17,7 +17,7 @@ using System.Web.Http.Results;
 
 namespace JobMvcApi.Controllers
 {
-    [Authorize(Roles = ("Jobseeker"))]
+    [Authorize(Roles = ("Jobseeker, Admin"))]
     [RoutePrefix("api/PersonalDetail")]
     public class UserProfileController : ApiController
     {
@@ -93,8 +93,6 @@ namespace JobMvcApi.Controllers
                     //    List<Address> result2 = adRepository.UpdateRange(filerAddress);
                     //}
                     return Ok(new { obj = result, message = "Update Successfully Done!!" });
-
-
                 }
                 else
                 {

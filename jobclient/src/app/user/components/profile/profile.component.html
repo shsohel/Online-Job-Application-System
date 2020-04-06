@@ -1,27 +1,102 @@
-<h4 class="text-center"> User Profile</h4>
-<div class="row">
-  
+<div class="row py-4">
     <div class="col-3">
         <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-            <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab"
-                aria-controls="v-pills-home" aria-selected="true">Home</a>
-            <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab"
-                aria-controls="v-pills-profile" aria-selected="false">Profile</a>
-            <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab"
-                aria-controls="v-pills-messages" aria-selected="false">Messages</a>
-            <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab"
-                aria-controls="v-pills-settings" aria-selected="false">Settings</a>
+            <a class="nav-link active" id="v-pills-Personal-tab" data-toggle="pill" href="#v-pills-Personal" role="tab"
+                aria-controls="v-pills-Personal" aria-selected="true">Personal Info</a>
+            <a class="nav-link" id="v-pills-address-tab" data-toggle="pill" href="#v-pills-address" role="tab"
+                aria-controls="v-pills-address" aria-selected="false">Address</a>
+            <a class="nav-link" id="v-pills-education-tab" data-toggle="pill" href="#v-pills-education" role="tab"
+                aria-controls="v-pills-education" aria-selected="false">Education</a>
+            <a class="nav-link" id="v-pills-skill-tab" data-toggle="pill" href="#v-pills-skill" role="tab"
+                aria-controls="v-pills-skill" aria-selected="false">Skill</a>
+            <a class="nav-link" id="v-pills-trainings-tab" data-toggle="pill" href="#v-pills-trainings" role="tab"
+                aria-controls="v-pills-trainings" aria-selected="false">Training</a>
         </div>
     </div>
-    <div class="col-9">
+    <div class="col-9" *ngFor="let p of personList">
+        <h4 class="text-right">
+            <button routerLink="/user/personInfo/{{p.PersonalDetailID}}" class="btn btn-sm btn-outline-success"> 
+                <i class="fa fa-edit"></i></button>
+        </h4>
         <div class="tab-content" id="v-pills-tabContent">
-            <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
-                ...</div>
-            <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...
+            <div class="tab-pane fade show active" id="v-pills-Personal" role="tabpanel"
+                aria-labelledby="v-pills-Personal-tab">
+                <h4 class="text-primary text-center">Profile Details</h4>
+                <div class="row border border-success ">
+                    <div class="col-sm-6">
+                        <p>User Name: <b>{{p.UserName}}</b></p>
+                        <p> Name: {{p.FirstName}} {{p.LastName}}</p>
+                        <p>Father Name: {{p.FatherName}}</p>
+                        <p>Mother Name: {{p.MotherName}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Birth Of Date: {{p.DOB}}</p>
+                        <p>National Id:{{p.NationalID}}</p>
+                        <p>Cell Phone: {{p.CellPhone}}</p>
+                        <p>Email: {{p.Email}}</p>
+                        <!-- <p><img src="{{p.Photo}}"></p> -->
+                    </div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...
+            <div class="tab-pane fade" id="v-pills-address" role="tabpanel" aria-labelledby="v-pills-address-tab">
+                <h4 class="text-primary text-center">Address</h4>
+                <div class="row border border-success" *ngFor="let pa of p.Addresses">
+                    <div class="col-sm-6">
+                        <p>Address: {{pa.AddressID}}</p>
+                        <p>Present Address: {{pa.PresentAddress}}</p>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Parmanent Address: {{pa.PermanentAddress}}</p>
+                    </div>
+                </div>
             </div>
-            <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...
+            <div class="tab-pane fade" id="v-pills-education" role="tabpanel" aria-labelledby="v-pills-education-tab">
+                <h4 class="text-primary text-center">Education Qualification</h4>
+                <div class="row border border-success" *ngFor="let pe of p.Educations">
+                    <div class="col-sm-6">
+                        <p>Education ID: {{pe.EducationID}}</p>
+                        <p>Level Of Education: {{pe.LevelOfEducation}}</p>
+                        <p>CGPA: {{pe.CGPA}}</p>
+                        <p>Scale: {{pe.Scale}}</p>
+                        <p>Degree: {{pe.DegreeTitle}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Group: {{pe.Group}}</p>
+                        <p>Institute: {{pe.Institute}}</p>
+                        <p>Passing Year: {{pe.PassingYear}}</p>
+                        <p>Duration: {{pe.Duration}}</p>
+                        <p>Achievement: {{pe.Achievement}}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-skill" role="tabpanel" aria-labelledby="v-pills-skill-tab">
+                <h4 class="text-primary text-center">Skill</h4>
+                <div class="row border border-success" *ngFor="let ps of p.Skills">
+                    <div class="col-sm-6">
+                        <p>Skill ID: {{ps.SkillID}}</p>
+                        <p>Skill Name: {{ps.SkillName}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="v-pills-trainings" role="tabpanel" aria-labelledby="v-pills-trainings-tab">
+                <h4 class="text-primary text-center">Trainings</h4>
+                <div class="row border border-success" *ngFor="let pt of p.Trainings">
+                    <div class="col-sm-6">
+                        <p>Training ID: {{pt.TrainingID}}</p>
+                        <p>Title: {{pt.Title}}</p>
+                        <p>Topics: {{pt.Topics}}</p>
+                        <p>Institute: {{pt.Institute}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <p>Location: {{pt.Location}}</p>
+                        <p>Country: {{pt.Country}}</p>
+                        <p>TrainingYear: {{pt.TrainingYear}}</p>
+                        <p>Duration: {{pt.Duration}}</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

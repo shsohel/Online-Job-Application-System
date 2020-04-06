@@ -1,1 +1,178 @@
-<p>edit-profile works!</p>
+<div class="jumbotron">
+    <div class="container">
+        <div col-md-8 offset-md-2>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active text-primary" id="personalinfo-tab" data-toggle="tab" href="#personalinfo"
+                        role="tab" aria-controls="personalinfo" aria-selected="true"><i
+                            class="fa fa-user-circle fa-2x"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-primary" id="address-tab" data-toggle="tab" href="#address" role="tab"
+                        aria-controls="address" aria-selected="false"><i class="fa fa-address-card fa-2x"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                        aria-controls="contact" aria-selected="false">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="personalinfo" role="tabpanel" aria-labelledby="personalinfo-tab">
+                <div class="col-md-8 offset-md-2">
+                    <h4 class="text-primary text-center text-capitalize">Personal Information </h4>
+                    <form [formGroup]="personalInfoForm" (submit)="onSubmit()">
+                        <div class="row">
+                            <input type="text" formControlName="PersonalDetailID" hidden="hidden" />
+                            <div class="form-group col-sm-6">
+                                <label>First Name</label>
+                                <input type="text" formControlName="FirstName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.FirstName.errors }" />
+                                <div *ngIf="submitted && f.FirstName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.FirstName.errors.required">First Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>Last Name</label>
+                                <input type="text" formControlName="LastName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.LastName.errors }" />
+                                <div *ngIf="submitted && f.LastName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.LastName.errors.required">Last Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label>Father Name</label>
+                                <input type="text" formControlName="FatherName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.FatherName.errors }" />
+                                <div *ngIf="submitted && f.FatherName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.FatherName.errors.required">Father Name is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>Mother Name</label>
+                                <input type="text" formControlName="MotherName" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.MotherName.errors }" />
+                                <div *ngIf="submitted && f.MotherName.errors" class="invalid-feedback">
+                                    <div *ngIf="f.MotherName.errors.required">Mother Name is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label>Birth of Date</label>
+                                <input type="date" data-date-format="yyyy-MM-dd" formControlName="DOB"
+                                    class="form-control" [ngClass]="{ 'is-invalid': submitted && f.DOB.errors }" />
+                                <div *ngIf="submitted && f.DOB.errors" class="invalid-feedback">
+                                    <div *ngIf="f.DOB.errors.required">Birth of Date is required</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>National ID</label>
+                                <input type="text" formControlName="NationalID" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.NationalID.errors }" />
+                                <div *ngIf="submitted && f.NationalID.errors" class="invalid-feedback">
+                                    <div *ngIf="f.NationalID.errors.required">National ID is required</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label>Email</label>
+                                <input type="Email" formControlName="Email" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.Email.errors }" readonly />
+                                <div *ngIf="submitted && f.Email.errors" class="invalid-feedback">
+                                    <div *ngIf="f.Email.errors.required">Email is required</div>
+                                    <div *ngIf="f.Email.errors.Email">Email must be a valid email address</div>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6">
+                                <label>Phone Number</label>
+                                <input type="text" formControlName="CellPhone" class="form-control"
+                                    [ngClass]="{ 'is-invalid': submitted && f.CellPhone.errors }" />
+                                <div *ngIf="f.CellPhone.invalid && f.CellPhone.touched" class="alert alert-warning"
+                                    role="alert">Phone
+                                    is required</div>
+                                <div *ngIf="submitted && f.CellPhone.errors" class="invalid-feedback">
+                                    <div *ngIf="f.CellPhone.errors.required">Phone is required</div>
+                                    <div *ngIf="f.CellPhone.errors.minlength">Phone must be at least 2 characters</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success" [disabled]="!personalInfoForm.valid"><i
+                                    class="fa fa-save"></i></button> ||
+                            <button type="cancel" (click)="clickCan()" class="btn btn-danger"><i
+                                    class="fa fa-window-close"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="address" role="tabpanel" aria-labelledby="address-tab">
+                <div class="col-md-8 offset-md-2">
+                    <h4 class="text-primary text-center text-capitalize"> Addresss </h4>
+
+                    <form [formGroup]="addressForm" (submit)="saveAddress()">
+                        <div formArrayName="address"
+                            *ngFor="let qual of addressForm.get('address')['controls']; let i = index;">
+                            <div [formGroupName]='i'>
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label> Address Id </label>
+                                        <input type="text" formControlName="AddressID" class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && a.AddressID.errors }" readonly />
+                                        <div *ngIf="submitted && f.AddressID.errors" class="invalid-feedback">
+                                            <div *ngIf="a.AddressID.errors.required">Email is required</div>
+                                            <div *ngIf="a.AddressID.errors">Email must be a valid email address</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label> PersonalDetail ID </label>
+                                        <input type="text" formControlName="PersonalDetailID" class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && a.PersonalDetailID.errors }"
+                                            readonly />
+                                        <div *ngIf="submitted && f.PersonalDetailID.errors" class="invalid-feedback">
+                                            <div *ngIf="a.PersonalDetailID.errors.required">Email is required</div>
+                                            <div *ngIf="a.PersonalDetailID.errors">Email must be a valid email address
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-sm-6">
+                                        <label>Present Address </label>
+                                        <input type="text" formControlName="PresentAddress" class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && a.PresentAddress.errors }" />
+                                        <div *ngIf="submitted && f.PresentAddress.errors" class="invalid-feedback">
+                                            <div *ngIf="a.PresentAddress.errors.required">Email is required</div>
+                                            <div *ngIf="a.PresentAddress.errors">Email must be a valid email address
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group col-sm-6">
+                                        <label> Parmanent Address </label>
+                                        <input type="text" formControlName="PermanentAddress" class="form-control"
+                                            [ngClass]="{ 'is-invalid': submitted && a.PermanentAddress.errors }" />
+                                        <div *ngIf="submitted && f.PermanentAddress.errors" class="invalid-feedback">
+                                            <div *ngIf="a.PermanentAddress.errors.required">Email is required</div>
+                                            <div *ngIf="a.PermanentAddress.errors">Email must be a valid email address
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success"><i class="fa fa-save"></i></button> ||
+                            <button type="cancel" (click)="clickCan()" class="btn btn-danger"><i
+                                    class="fa fa-window-close"></i></button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">...</div>
+        </div>
+    </div>
+</div>
