@@ -17,7 +17,7 @@ using System.Web.Http.Results;
 
 namespace JobMvcApi.Controllers
 {
-    [Authorize(Roles = ("Jobseeker, Admin"))]
+    [Authorize(Roles = ("Jobseeker"))]
     [RoutePrefix("api/PersonalDetail")]
     public class UserProfileController : ApiController
     {
