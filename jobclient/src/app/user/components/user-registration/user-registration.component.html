@@ -1,0 +1,115 @@
+<div class="py-5">
+    <div class="row">
+        <div class=" container col-md-3 col-sm-3 mx-auto">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active btn btn-outline-success my-2 my-sm-0" id="jobseeker-tab"
+                        data-toggle="tab" href="#jobseeker" role="tab" aria-controls="jobseeker"
+                        aria-selected="true">Job Seeker</button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link btn btn-outline-dark my-2 my-sm-0" id="employee-tab" data-toggle="tab"
+                        href="#employee" role="tab" aria-controls="employee" aria-selected="false">Employee</button>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="tab-content col-md-6 mx-auto py-3" id="myTabContent">
+        <div class="tab-pane fade show active" id="jobseeker" role="tabpanel" aria-labelledby="jobseeker-tab">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h3 class="mb-0 text-center">Register Jobseeker</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="registerForm" class="form">
+                        <div class="form-group input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i
+                                        class="fa fa-user-circle fa-x"></i></span>
+                            </div>
+                            <input type="text" id="userName" formControlName="userName" name="userName" placeholder="User Name"
+                                class="form-control" required>
+                                <!-- <div *ngIf="f.userName.invalid && (f.userName.dirty || f.userName.touched)" class="alert alert-danger">                             
+                                    <div *ngIf="f.userName.errors.required"> Name is required.</div>
+                                </div> -->
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i
+                                        class="fa fa-envelope fa-x"></i></span>
+                            </div>
+                            <input type="email" formControlName="email" name="email" class="form-control"
+                                placeholder="Email" required>
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i class="fa fa-key fa-x"></i></span>
+                            </div>
+                            <input type="password" formControlName="password" name="password" class="form-control"
+                                placeholder="Password" required>
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i class="fa fa-key fa-x"></i></span>
+                            </div>
+                            <input type="password" formControlName="confirmPassword" name="confirmPassword"
+                                class="form-control" placeholder="Confirm Password" required>
+                        </div>
+                        <button type="button" [disabled]="!registerForm.valid" (click)="registerUser()"
+                            class="btn btn-success float-right">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="employee" role="tabpanel" aria-labelledby="employee-tab">
+            <div class="card rounded-0">
+                <div class="card-header">
+                    <h3 class="mb-0 text-center">Employee Register</h3>
+                </div>
+                <div class="card-body">
+                    <form [formGroup]="registerForm" class="form">
+                        <div class="form-group input-group mb-3 ">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i
+                                        class="fa fa-user-circle fa-x"></i></span>
+                            </div>
+                            <input type="text" formControlName="userName" name="userName" placeholder="User Name"
+                                class="form-control" required>
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i
+                                        class="fa fa-envelope fa-x"></i></span>
+                            </div>
+                            <input type="email" formControlName="email" name="email" class="form-control"
+                                placeholder="Email" required>
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i class="fa fa-key fa-x"></i></span>
+                            </div>
+                            <input type="password" formControlName="password" name="password" class="form-control"
+                                placeholder="Password" required>
+                        </div>
+
+                        <div class="form-group input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon1"> <i class="fa fa-key fa-x"></i></span>
+                            </div>
+                            <input type="password" formControlName="confirmPassword" name="confirmPassword"
+                                class="form-control" placeholder="Confirm Password" required>
+                        </div>
+                        <button type="button" [disabled]="!registerForm.valid" (click)="registerEmployee()"
+                            class="btn btn-success float-right">Register</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
