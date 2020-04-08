@@ -16,7 +16,6 @@ export class EditProfileComponent implements OnInit {
   personalInfo: Personaldetail = new Personaldetail();
   addressinfo: Addresses[] = [];
   putAddressModel: PutAddress = new PutAddress();
-
   submitted: boolean = false;
   constructor(private _fb: FormBuilder, private router: Router, private activatedRoute: ActivatedRoute,
     private personService: UserService) {
@@ -56,25 +55,19 @@ export class EditProfileComponent implements OnInit {
   get f() { return this.personalInfoForm.controls; }
   get a() { return this.addressForm.controls; }
 
-
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe(param => {
       this.peseronalInfoId = +param.get("id");
       console.log(this.peseronalInfoId)
       if (this.peseronalInfoId > 0) {
         let eduQulaFormArray = <FormArray>this.addressForm.get('address');
-
         this.personService.getById(this.peseronalInfoId).subscribe((res: any) => {
-          console.log("hi")
           console.log(res);
-          //console.log(suc.vendor)
           this.personalInfo = res.obj;
           this.addressinfo = res.obj.Addresses;
           console.log(this.addressinfo)
-
           this.personalInfoForm.patchValue(this.personalInfo);
           eduQulaFormArray.patchValue(this.addressinfo);
-
         }, e => {
           console.log(e.error)
         })
@@ -103,7 +96,6 @@ export class EditProfileComponent implements OnInit {
     }
     this.router.navigateByUrl("/user/profile")
   }
-
   saveAddress() {
     let addressArrayForm = <FormArray>this.addressForm.get('address');
     console.log(addressArrayForm.value);
@@ -129,5 +121,4 @@ export class EditProfileComponent implements OnInit {
   clickCan() {
     this.router.navigateByUrl("/user/profile")
   }
-
 }
