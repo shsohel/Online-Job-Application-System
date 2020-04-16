@@ -60,14 +60,14 @@ export class EditProfileComponent implements OnInit {
       this.peseronalInfoId = +param.get("id");
       console.log(this.peseronalInfoId)
       if (this.peseronalInfoId > 0) {
-        let eduQulaFormArray = <FormArray>this.addressForm.get('address');
+        let addressFormArray = <FormArray>this.addressForm.get('address');
         this.personService.getById(this.peseronalInfoId).subscribe((res: any) => {
           console.log(res);
           this.personalInfo = res.obj;
           this.addressinfo = res.obj.Addresses;
           console.log(this.addressinfo)
           this.personalInfoForm.patchValue(this.personalInfo);
-          eduQulaFormArray.patchValue(this.addressinfo);
+          addressFormArray.patchValue(this.addressinfo);
         }, e => {
           console.log(e.error)
         })

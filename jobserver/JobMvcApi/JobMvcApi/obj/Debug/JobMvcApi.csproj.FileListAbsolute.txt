@@ -442,7 +442,6 @@ C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMv
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Cors.dll
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.dll
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.Cookies.dll
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.dll
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.Facebook.dll
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.Google.dll

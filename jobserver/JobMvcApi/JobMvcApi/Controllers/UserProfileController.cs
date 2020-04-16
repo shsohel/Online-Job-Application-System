@@ -37,8 +37,9 @@ namespace JobMvcApi.Controllers
         [Route("GetPersonalDetailList", Name = "GetPersonalDetail")]
         public IHttpActionResult GetPersonalDetails()
         {
+           // string userNam = User.Identity.GetUserName();
             string userName = RequestContext.Principal.Identity.GetUserName();
-            IEnumerable<PersonalDetail> result = _repository.GetAll().Where(x => x.UserName == userName);
+            IEnumerable<PersonalDetail> result = _repository.GetAll().Where(x=>x.UserName==userName);
             return Ok(new { obj = result, user = userName });
         } 
 
