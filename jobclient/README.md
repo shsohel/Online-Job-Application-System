@@ -25,3 +25,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+
+module create with routing 
+ng g module [module-name] --routing or ng g m [module-name] --routing
+
+module create with routing with root module
+ng generate module customers --route customers --module app.module
+
+service generate 
+ng g service 
