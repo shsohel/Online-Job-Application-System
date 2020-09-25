@@ -17,7 +17,7 @@ using System.Web.Http.Results;
 
 namespace JobMvcApi.Controllers
 {
-    [Authorize(Roles = ("Jobseeker, Admin"))]
+   // [Authorize(Roles = ("Jobseeker, Admin"))]
     [RoutePrefix("api/PersonalDetail")]
     public class UserProfileController : ApiController
     {
@@ -32,6 +32,7 @@ namespace JobMvcApi.Controllers
             adRepository = AdRepository;
         }
 
+        //Get User By Login 
         // GET: api/PersonalDetail
         [HttpGet]
         [Route("GetPersonalDetailList", Name = "GetPersonalDetail")]
@@ -40,8 +41,43 @@ namespace JobMvcApi.Controllers
            // string userNam = User.Identity.GetUserName();
             string userName = RequestContext.Principal.Identity.GetUserName();
             IEnumerable<PersonalDetail> result = _repository.GetAll().Where(x=>x.UserName==userName);
-            return Ok(new { obj = result, user = userName });
-        } 
+            return Ok(new { status = 200, obj = result, user = userName });
+        }
+
+
+        [HttpGet]
+        [Route("userName/{UserName}")]
+        public IHttpActionResult GetbyUserName(string userName)
+        {
+            try
+            {
+
+                if (userName != null)
+                {
+                    IList<PersonalDetail> result = _repository.GetAll().Where(x => x.UserName == userName).ToList();
+                    if (result.Count>0)
+                    {
+                        return Ok(new { status = 200, obj = result, message = "User data retrive successfully." });
+                    }
+                    else
+                    {
+                        return BadRequest(message);
+                    }
+                }
+                else
+                {
+                    return BadRequest(message);
+                }
+            }
+            catch (Exception e)
+            {
+
+            }
+            return BadRequest(message);
+        }
+
+
+
 
         // GET: api/PersonalDetail/5
         [HttpGet]

@@ -494,7 +494,6 @@ C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMv
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Host.SystemWeb.xml
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.xml
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.Facebook.xml
-C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.Cookies.xml
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
@@ -506,3 +505,4 @@ C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMv
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\obj\Debug\JobMvcApi.csproj.CopyComplete
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\obj\Debug\JobMvcApi.dll
 C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\obj\Debug\JobMvcApi.pdb
+C:\Users\SH SOHEL\Documents\GitHub\Online-Job-Application-System\jobserver\JobMvcApi\JobMvcApi\bin\System.Threading.Tasks.Extensions.dll
